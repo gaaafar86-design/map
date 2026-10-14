@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f6f43">
+<title>خريطة المخطط</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="row">
+    <input id="q" list="dl" placeholder="ابحث: رقم القطعة (160) أو مدرسة / روضة / تجاري" autocomplete="off" enterkeyhint="search">
+    <datalist id="dl"></datalist>
+    <button id="go" type="button">بحث</button>
+  </div>
+  <div id="results" class="chips"></div>
+  <div id="msg"></div>
+</header>
+
+<div class="mapwrap">
+  <div id="viewport"><div id="inner"><img id="mapimg" src="map.jpg" alt="خريطة المخطط" draggable="false"></div></div>
+  <div class="zoom">
+    <button id="zi" type="button" aria-label="تكبير">+</button>
+    <button id="zo" type="button" aria-label="تصغير">−</button>
+    <button id="zr" type="button" aria-label="إعادة">⤢</button>
+  </div>
+</div>
+
+<!-- لوحة الإدارة: تظهر فقط عند فتح الصفحة بالرابط index.html#admin -->
+<section id="admin" hidden>
+  <div class="row">
+    <input id="an" placeholder="رقم القطعة أو اسم المكان" >
+    <select id="at">
+      <option value="plot">قطعة</option>
+      <option value="school">مدرسة</option>
+      <option value="kg">روضة</option>
+      <option value="shop">مبنى تجاري</option>
+      <option value="other">أخرى</option>
+    </select>
+  </div>
+  <div class="row">
+    <button id="as" type="button">+ حفظ المكان</button>
+    <button id="ad" type="button" class="s">حذف الظاهر</button>
+  </div>
+  <div class="row">
+    <button id="adl" type="button" class="s">تنزيل data.js</button>
+  </div>
+  <div class="row">
+    <button id="aall" type="button" class="s">عرض الكل</button>
+    <button id="areset" type="button" class="s">مسح تعديلاتي</button>
+  </div>
+  <div class="row">
+    <button id="alistbtn" type="button" class="s">قائمة الأماكن / حذف</button>
+    <button id="aundo" type="button" class="s">تراجع</button>
+  </div>
+  <div id="alist" hidden></div>
+  <small>1) اضغط على الخريطة لتحديد الموقع (دائرة زرقاء)  2) اكتب الرقم أو الاسم  3) حفظ المكان (بتنحفظ تلقائياً بالمتصفح)  4) بالنهاية: تنزيل data.js ورفعه مكان القديم على GitHub</small>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
